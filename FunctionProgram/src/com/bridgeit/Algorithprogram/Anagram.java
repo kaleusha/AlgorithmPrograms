@@ -1,39 +1,31 @@
-package com.bridgeit.Algorithprogram;
+/******************************************************************************
+ *  Purpose: Read Two String And Check Anagram or Not
+ *  
+ *  @author  Usha Kale
+ *  @version 1.0
+ *  @since   06-03-2018
+ ******************************************************************************/
 
-import java.util.Arrays;
-import java.util.Scanner;
+package com.bridgeit.Algorithprogram;
+import com.bridgeit.utility.Utility;
 
 public class Anagram {
 	public static void main(String[] args)
 	{
-		boolean status=true;
-		Scanner scanner=new Scanner(System.in);
+		
+		Utility utility=new Utility();
 		System.out.println("Enter First String");
-		String s1=scanner.nextLine();
+		String string1=utility.inputString();
 		System.out.println("Enter second String");
-		String s2=scanner.nextLine();
-		char ch[]=s1.toCharArray();
-		Arrays.sort(ch);
-		if(s1.length()!=s2.length())
+		String string2=utility.inputString();
+		boolean result=Utility.anagram(string1,string2);
+		if(result)
 		{
-			status=false;
-		}
-		else
+			System.out.println(string1 + " and " + string2 + " are anagrams");  
+		}else
 		{
-			char ArrayS1[]=s1.toCharArray();
-			Arrays.sort(ArrayS1);
-			char ArrayS2[]=s2.toCharArray();
-			Arrays.sort(ArrayS2);
-			status = Arrays.equals(ArrayS1, ArrayS2);  
-			
+			System.out.println(string1 + " and " + string2 + " are not anagrams");  
 		}
-		  if (status) 
-		  {  
-	            System.out.println(s1 + " and " + s2 + " are anagrams");  
-	      } else 
-	        {  
-	            System.out.println(s1 + " and " + s2 + " are not anagrams");  
-	        }  
 	}
 
 }

@@ -1,51 +1,31 @@
+/******************************************************************************
+ *  Purpose: Read Start And End Time And Print Elapsed Time 
+ *  
+ *  @author  Usha Kale
+ *  @version 1.0
+ *  @since   05-03-2018
+ ******************************************************************************/
 package com.bridgeit.program;
 
-import java.sql.Timestamp;
+import com.bridgeit.utility.Utility;
 
 public class StopWatch {
 	
-		long startTime;
-		long stopTime;
-		boolean running;
-		public void start() 
-		{
-		    this.startTime = System.currentTimeMillis();
-		    this.running = true;
-		    System.out.println("Start time is:"+new Timestamp(startTime));
-		}
-        public void stop() 
-		{
-		    this.stopTime = System.currentTimeMillis();
-		    this.running = false;
-		    System.out.println("Stop time is:"+new Timestamp(stopTime));
-	    }
-        
-		public void elapseTime()
-		{
-			long elapseTimes=startTime-stopTime;
-			System.out.println("elapseTime:"+new Timestamp(elapseTimes));
-		}
+
+	
 		public static void main(String[] args) {
 			
-			long starttime=System.currentTimeMillis();
-			System.out.println("Time Chek"+new Timestamp(System.currentTimeMillis()));
-			StopWatch sw=new StopWatch();
-			sw.start();
-		   /* for(int i=0;i<40;i++)
-		    {
-		    	System.out.print("i valie is:"+i);
-		    }*/
-		    sw.stop();
-		    sw.elapseTime();
-		}
-		/*Scanner scanner=new Scanner(System.in);
-		System.out.println("Enter StartTime in hours ");
-		 int startTime=scanner.nextInt();
-		 System.out.println("Enter EndTime in hours ");
-		 int endTime=scanner.nextInt();
-		 int elapseTime=endTime-startTime;
-		 System.out.println("Elapses Time is:"+elapseTime);*/
+			Utility utility=new Utility();
+			System.out.println("Press 1 to start the time: ");
+			int a = utility.inputInteger();
+			Utility.start();
+			System.out.println("Press 2 to stop the time: ");
+			int b = utility.inputInteger();
+			Utility.stop();
+			long l=Utility.getElapsedTime();
+			System.out.println("Total Time Elapsed(in millisec) is:"+l);
+			System.out.println("Converting millisec to seconds: "+(l/1000)+" sec");
 		
-	
-
+			
+		}
 }

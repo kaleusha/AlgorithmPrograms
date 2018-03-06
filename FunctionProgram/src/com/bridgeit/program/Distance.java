@@ -1,23 +1,25 @@
-package com.bridgeit.program;
-/*
-
- *  Purpose: Read Two Integers x and y and prints the Euclidean distance
- *  @author  Usha Balbhim Kale
+/******************************************************************************
+ *  Purpose: Given N distinct Coupon Numbers, how many random 
+ *  numbers do you need to generate that distinct coupon number?
+ *  
+ *  @author  Usha Kale
  *  @version 1.0
  *  @since   05-03-2018
+ ******************************************************************************/
 
-*/
 
-import java.util.Scanner;
+package com.bridgeit.program;
+
+import com.bridgeit.utility.Utility;
 
 public class Distance {
 	public static void main(String[] args) 
 	{
-		 Scanner scanner=new Scanner(System.in);
+		 Utility utility=new Utility();
 		 System.out.println("Enter Value of x "); 
-		 int x=scanner.nextInt();
+		 int x=utility.inputInteger();
 		 System.out.println("Enter Value of y "); 
-		 int y=scanner.nextInt();
+		 int y=utility.inputInteger();
 		 double distance;
 		 distance=Math.sqrt((x*x)+(y*y));
 		 System.out.println(distance);

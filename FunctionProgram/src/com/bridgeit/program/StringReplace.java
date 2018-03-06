@@ -1,24 +1,23 @@
+/******************************************************************************
+ *  Purpose: Read Given String Replace Substring With User Name
+ *  
+ *  @author  Usha Kale
+ *  @version 1.0
+ *  @since   05-03-2018
+ ******************************************************************************/
+
 package com.bridgeit.program;
 
-import java.util.Scanner;
+import com.bridgeit.utility.Utility;
+
 public class StringReplace {
 		public static void main(String[] args) {
 
-			Scanner scanner=new Scanner(System.in);
+			Utility utility=new Utility();
 			System.out.println("Enter user Name");
-			String input=scanner.nextLine();
-			String str="Hello <<UserName>>, How are you? ";
-			if(input.length()>3)
-			{
-				System.out.println("valid string");
-				String replaceString=str.replace("<<UserName>>",input);
-				System.out.println(replaceString);
-			}
+			String input=utility.toString();
+			Utility.stringReplace(input);
 			
-			else
-				System.out.println("enter greter than 3 char in string");
-			
-			scanner.close();
 		}
 		
 }

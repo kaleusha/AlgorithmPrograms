@@ -22,6 +22,8 @@ public class Binary {
 		{
 			System.out.print(binary[i]);
 		}
+		
+		
        //int sizeOfArray=binary.length;
        //System.out.println(+sizeOfArray);
        //if(sizeOfArray>8)

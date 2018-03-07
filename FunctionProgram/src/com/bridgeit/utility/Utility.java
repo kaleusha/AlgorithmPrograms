@@ -1,10 +1,15 @@
 package com.bridgeit.utility;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.LinkedList;
 import java.util.Random;
 import java.util.Scanner;
+
+import javax.xml.soap.Node;
 
 public class Utility {
 
@@ -574,8 +579,9 @@ public class Utility {
 	 * @param m
 	 * @param d
 	 * @param y
+	 * @return 
 	 */
-	public static void dayOfWeek(int m, int d, int y) {
+	public static int dayOfWeek(int m, int d, int y) {
 		// TODO Auto-generated method stub
 		int y0,x,m0,d0;
 		y0=y-(14-m)/12;
@@ -583,56 +589,10 @@ public class Utility {
 		m0=m+12*((14-m)/12)-2;
 
 		d0 =  Math.floorMod((d + x + 31*m0 / 12), 7);
-		String weekDay;
+		
 
-		switch(d0) 
-		{  
-
-		case 0 :
-			weekDay = " Sunday ";
-			System.out.println(weekDay);
-			break;
-
-
-		case 1:  
-			weekDay = " Monday ";
-			System.out.println(weekDay);
-			break;
-
-
-		case 2:  
-			weekDay = " Tuesday ";
-			System.out.println(weekDay);
-			break;
-
-
-		case 3:  
-			weekDay = " Wednesday ";
-			System.out.println(weekDay);
-			break;
-
-
-		case 4:  
-			weekDay = " Thursday ";
-			System.out.println(weekDay);
-			break;
-
-
-		case 5:  
-			weekDay = " Friday ";
-			System.out.println(weekDay);
-			break;
-
-
-		case 6:  
-			weekDay = " Saturday "; 
-			System.out.println(weekDay);
-			break;
-
-
-
-
-		}
+		
+		return d0;
 	}
 
 
@@ -801,6 +761,98 @@ public class Utility {
         }
 		
 	}
+
+	
+		public static int binarySearchString(String key, String [] words, int low, int high) 
+		{
+			
+			
+			if(high <= low)
+				return -1;
+
+			
+			if(low<=high)
+			{
+				int mid = (low+ high)/2;
+				if(key.compareTo(words[mid]) ==0) 
+				{
+					return mid;
+				} 
+				else if(key.compareTo(words[mid]) > 0) 
+				{
+					return binarySearchString(key, words, mid+1, high);
+				}
+				else
+				{
+					return binarySearchString(key, words, low, mid-1);
+				}
+			}
+
+			return -1;
+		}
+		public static void bubblesortString(String input[]) 
+		{
+	        for(int i=0;i<input.length;i++) 
+	        { 
+	        	for(int j=i+1; j<input.length;j++)
+	        	{
+	        		if(input[i].compareToIgnoreCase(input[j]) > 0) 
+	        		{ 
+	        			String temp = input[i]; 
+	        			input[i] = input[j];
+	        			input[j] = temp;
+	        			}
+	        		} 
+	        	System.out.println(input[i]);
+	        	} 
+	        } 
+		
+		public static String[] readFile(String filePath) {
+			String[] words = {};
+			ArrayList<String> lines = new ArrayList<String>();
+			String line, temp[] = {};
+			BufferedReader bufferedReader;
+			FileReader file;
+			
+			try {
+				file = new FileReader(filePath);
+				bufferedReader = new BufferedReader(file);
+				while ((line = bufferedReader.readLine()) != null) {
+					temp = line.split(" ");
+					for (int i = 0; i < temp.length; i++)
+					{
+						lines.add(temp[i]);
+
+					}
+				}
+				words = lines.toArray(new String[lines.size()]);
+				bufferedReader.close();
+			} 
+			catch (FileNotFoundException e) 
+			{
+				e.printStackTrace();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+			return words;
+		}
+
+		
+			 /**
+			 * @param year
+			 * @return
+			 */
+			public static boolean isLeapYear(int year) {
+			        if  ((year % 4 == 0) && (year % 100 != 0)) return true;
+			        if  (year % 400 == 0) return true;
+			        return false;
+			    }	
+
+			
+		
+	
 
 
 

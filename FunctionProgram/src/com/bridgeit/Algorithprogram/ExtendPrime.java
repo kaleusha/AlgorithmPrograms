@@ -12,6 +12,7 @@ public class ExtendPrime {
           ArrayList<String> al=Utility.primeNumber();
           String strArray[]=new String[al.size()];
           strArray=al.toArray(strArray);
+          
           Utility.extendPrime(strArray);
           
          

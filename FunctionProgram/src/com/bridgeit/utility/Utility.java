@@ -421,6 +421,7 @@ public class Utility {
 
 
 	/**
+	 * 
 	 * Purpose:prints the Elapsed Time
 	 * 
 	 */
@@ -723,6 +724,12 @@ public class Utility {
 
 	}
 
+	/**
+	 * Purpose:Print Monthly Payment
+	 * @param P
+	 * @param R
+	 * @param Y
+	 */
 	public static void monthlyPayment(int P, double R, int Y) {
 		// TODO Auto-generated method stub
 		int n=12*Y;
@@ -733,7 +740,7 @@ public class Utility {
 	}
 
 	/**
-	 * Purpose:
+	 * Purpose:Print Prime Numbers That Are Anagram
 	 * @param strArray
 	 */
 	public static void extendPrime(String[] strArray) {
@@ -763,6 +770,14 @@ public class Utility {
 	}
 
 	
+		/**
+		 * Purpose:Search String
+		 * @param key
+		 * @param words
+		 * @param low
+		 * @param high
+		 * @return
+		 */
 		public static int binarySearchString(String key, String [] words, int low, int high) 
 		{
 			
@@ -790,6 +805,10 @@ public class Utility {
 
 			return -1;
 		}
+		/**
+		 * Purpose:Sort String
+		 * @param input
+		 */
 		public static void bubblesortString(String input[]) 
 		{
 	        for(int i=0;i<input.length;i++) 
@@ -807,6 +826,11 @@ public class Utility {
 	        	} 
 	        } 
 		
+		/**
+		 * Purpose:Read File
+		 * @param filePath
+		 * @return
+		 */
 		public static String[] readFile(String filePath) {
 			String[] words = {};
 			ArrayList<String> lines = new ArrayList<String>();
@@ -841,6 +865,7 @@ public class Utility {
 
 		
 			 /**
+			 * Purpose:Print Leap Year or NOt
 			 * @param year
 			 * @return
 			 */
@@ -848,7 +873,24 @@ public class Utility {
 			        if  ((year % 4 == 0) && (year % 100 != 0)) return true;
 			        if  (year % 400 == 0) return true;
 			        return false;
-			    }	
+			    }
+
+			/**
+			 * @param str
+			 */
+			public static void display(String[][] str) 
+			{
+				for (int i = 0; i < str.length; i++) 
+				{
+					for (int j = 0; j < str[i].length; j++) 
+					{
+						System.out.print("|_" + str[i][j] + "_|");
+					}
+					System.out.println();
+				}
+
+				System.out.println("\n");
+			}	
 
 			
 		

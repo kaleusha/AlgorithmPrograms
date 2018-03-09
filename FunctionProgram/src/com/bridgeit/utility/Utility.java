@@ -622,7 +622,7 @@ public class Utility {
 			}
 			else if (input.equals("yes"))
 			{
-				System.out.println("The number you thought was: "+middle);
+				System.out.println("The number you search was: "+middle);
 				int no=count+1;
 				System.out.println("It takes "+no+" times to find your exact number");
 				break;
@@ -890,13 +890,117 @@ public class Utility {
 				}
 
 				System.out.println("\n");
-			}	
+			}
 
+			/**
+			 * @param str
+			 * @param l
+			 * @param r
+			 */
+			public static void permute(String str,int l,int r)
+			   {
+				int count=0;
+				   if(l==r)
+				   {
+					   
+					   System.out.println(str);
+				   }
+				   else
+				   {
+					   for(int i=l;i<=r;i++)
+					   { 
+						   str = swap(str,l,i);
+						   permute(str, l+1, r);
+						   str = swap(str,l,i);
+						   
+					   }
+				   }
+				  // System.out.println(count);
+			   }
+			   
+			   /**
+			 * @param str
+			 * @param i
+			 * @param j
+			 * @return
+			 */
+			public static String swap(String str,int i, int j)
+			   {
+				   char temp;
+				   char charArray[] = str.toCharArray();
+				   temp = charArray[i];
+				   charArray[i] = charArray[j];
+				   charArray[j] = temp;
+				   return String.valueOf(charArray);
+			   }
+
+			/**
+			 * @param amunt
+			 */
+			static double balance=0;
+			public static void enqueue(double amunt) 
+			{
+				
+		        balance=balance+amunt;
+				System.out.println("Rs"+amunt+" Deposited Sucessfully");
+				System.out.println("Current Balance is Rs"+balance);
+				
+				
+			}
+
+		   public static void dequeue(double amuntw) 
+		   {
+				balance=balance-amuntw;
+				System.out.println(" Rs"+amuntw+" Withdraws Sucessfully");
+				System.out.println("Current Balance is Rs "+balance);
+		   }
+					
+			public static void checkbalance()
+			{
+				System.out.println("Current Balance is Rs"+balance);
+			}
+
+			/**
+			 * Purpose:Print Factorial Of Given Number
+			 * 
+			 * @param number
+			 */
+			public static int factorial(int number) {
+				// TODO Auto-generated method stub
+				int i,fact=1;
+				
+				for(i=1;i<=number;i++){
+				fact=fact*i;
+				}
+				//System.out.println("Factorial of "+number+" is: "+fact);
+				return fact;
+			}
+
+			/**
+			 * Purpose: Find Number of Possible Ways To Arrange Tree
+			 * 
+			 * @param array
+			 */
+			public static void NumberOfBinarySearchTree(int number) 
+			{
+				long fact1,fact2,fact3,counter = 0;
+				
+					fact1 = factorial((2) * (number));
+					fact2 = factorial(number+1);
+					fact3 = factorial(number);
+					
+					counter = fact1/(fact2*fact3);
+					
+					System.out.println(counter);
+				}
+
+			/**
+			 * 
+			 * @param num
+			 * @return 
+			 */
 			
-		
 	
-
-
 
 
 

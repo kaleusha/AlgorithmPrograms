@@ -1,48 +1,70 @@
 package com.bridgeit.DataStructure;
 
+import java.util.Scanner;
+
 import com.bridgeit.utility.Utility;
 
 public class BankingCashCounter
 {
 	public static void main(String[] args) 
 	{
-		int ch;
-		QueueStructure queue=new QueueStructure();
-		Utility utility=new Utility();
-		do
-		{
-		System.out.println("\n1.Deposit \n2.Withdraw \n3.number of element in queue \n4.exit");
-		System.out.println("Enter choice");
-		 ch=utility.inputInteger();
-		switch(ch)
-		{
 		
+		Utility utility=new Utility();
+		int ch;
+		BankingQueueStructure qs=new BankingQueueStructure();
+		do {
+			System.out.println("\n1.For enter to Queue\n2.Procede with Transaction");
+			System.out.println("Enter choice");
+			 ch=utility.inputInteger();
+			if(ch==1)
+		    qs.add();
+			if(ch==2&&qs.empty())
+				System.out.println("First Enter into Queue");
+		
+		
+			int option;
+		if(ch==2)
+		{
+			do
+			{
+		     System.out.println("Select your operation in Bank \n1.Deposite \n.2 WithDraw \n3.Check Balance \n4.Exit ");
+		     System.out.println("Enter option");
+		      option =utility.inputInteger();
+		
+		switch (option)
+		{
 		case 1:
-			System.out.println("Enter Deposit Amount:");
-			int data=utility.inputInteger();
-			queue.enqueue(data);
-			System.out.println("Total Amount is: ");
-			queue.display();
-			break;
+			    System.out.println("Enter the amount to deoposite");
+			    double amunt=utility.hashCode();
+			    qs.exit();
+			    Utility.enqueue(amunt);
+			    break;
 		
 		case 2:
-			System.out.println("Enter Withdraw Amount");
-			queue.dequeue(utility.inputInteger());
-			System.out.println("Remaining Amount Is: ");
-			queue.display();
-			break;
-			
-		case 3:
-			int j=queue.getSize();
-			System.out.println("The number of people in queue: "+j);
-			
-		case 4:
-			System.exit(0);
-			
-			
-		}
+			   System.out.println("Enter the amount to withdraw");
+			   double amuntw=utility.hashCode();
+			   qs.exit();
+			   Utility.dequeue(amuntw);
+			   break;
 		
-		}while(ch<4);
+		case 3:
+			   Utility.checkbalance();
+			   break;
+			   
+		case 4:
+			//qs.add();
+			  System.exit(option);
+			  
+		
+		
+	  default:
+		      System.out.println("Invalid choice");
+			}
+			
+			}while(option<4);
+		}
+		}while(ch<3);
+			
 	}
 
 }
